@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:riverpod_newsapp/constants/constants.dart';
 
 class NewsServices {
-  final Dio dio = Dio(
+  final Dio _dio = Dio(
     BaseOptions(
       baseUrl: ApiUrls.baseUrl,
       responseType: ResponseType.json,
@@ -10,7 +10,7 @@ class NewsServices {
   );
 
   getNews() async {
-    var response = await dio.get('&language=en');
+    var response = await _dio.get('&language=en');
     return response.data;
   }
 }
